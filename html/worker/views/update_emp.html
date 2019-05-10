@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href='../model/assets/stylesheets/bootstrap/bootstrap.css' media='all' rel='stylesheet' type='text/css' />
+				    <link href='../model/assets/stylesheets/bootstrap/bootstrap-responsive.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / jquery ui -->
+				    <link href='../model/assets/stylesheets/jquery_ui/jquery-ui-1.10.0.custom.css' media='all' rel='stylesheet' type='text/css' />
+				    <link href='../model/assets/stylesheets/jquery_ui/jquery.ui.1.10.0.ie.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / switch buttons -->
+				    <link href='../model/assets/stylesheets/plugins/bootstrap_switch/bootstrap-switch.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / xeditable -->
+				    <link href='../model/assets/stylesheets/plugins/xeditable/bootstrap-editable.css' media='all' rel='stylesheet' type='text/css' />
+				    <link href='../model/assets/stylesheets/plugins/common/bootstrap-wysihtml5.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / wysihtml5 (wysywig) -->
+				    <link href='../model/assets/stylesheets/plugins/common/bootstrap-wysihtml5.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / jquery file upload -->
+				    <link href='../model/assets/stylesheets/plugins/jquery_fileupload/jquery.fileupload-ui.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / full calendar -->
+				    <link href='../model/sassets/stylesheets/plugins/fullcalendar/fullcalendar.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / select2 -->
+				    <link href='../model/assets/stylesheets/plugins/select2/select2.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / mention -->
+				    <link href='../model/assets/stylesheets/plugins/mention/mention.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / tabdrop (responsive tabs) -->
+				    <link href='../model/assets/stylesheets/plugins/tabdrop/tabdrop.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / jgrowl notifications -->
+				    <link href='../model/assets/stylesheets/plugins/jgrowl/jquery.jgrowl.min.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / datatables -->
+				    <link href='../model/assets/stylesheets/plugins/datatables/bootstrap-datatable.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / dynatrees (file trees) -->
+				    <link href='../model/assets/stylesheets/plugins/dynatree/ui.dynatree.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / color picker -->
+				    <link href='../model/assets/stylesheets/plugins/bootstrap_colorpicker/bootstrap-colorpicker.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / datetime picker -->
+				    <link href='../model/assets/stylesheets/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.min.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / daterange picker) -->
+				    <link href='../model/assets/stylesheets/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / flags (country flags) -->
+				    <link href='../model/assets/stylesheets/plugins/flags/flags.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / slider nav (address book) -->
+				    <link href='../model/assets/stylesheets/plugins/slider_nav/slidernav.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / fuelux (wizard) -->
+				    <link href='../model/assets/stylesheets/plugins/fuelux/wizard.css' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / flatty theme -->
+				    <link href='../model/assets/stylesheets/light-theme.css' id='color-settings-body-color' media='all' rel='stylesheet' type='text/css' />
+				    <!-- / demo -->
+				    <link href='../model/assets/stylesheets/demo.css' media='all' rel='stylesheet' type='text/css' />
+		<script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/vue"></script>
+		
+		
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+    <div class='span12 box' style="margin-left: 250px; width: 1000px;"id="update-emp" >
+        <div class='box-header '>
+            <div  style="margin-left: 30px; margin-top: 0px;"><h1 style="font-size: 34px;">员工变动</h1></div>
+        
+        </div>
+        <div class='box-content' >
+            <div class='form form-horizontal validate-form' style='margin-bottom: 0;' />
+                <div class='control-group'>
+                    <label class='control-label' >姓名</label>
+                    <div class='controls' >
+                        <input style="margin-top: 7px;"  id='emp_name'   type='text' />
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' >E-mail</label>
+                    <div class='controls'>
+                        <input style="margin-top: 7px;" id='emp_email' name='emp_email' placeholder='E-mail' type='text' />
+                    </div>
+                </div>
+                
+                  <div class='control-group'>
+                    <label class='control-label' >出生年月</label>
+                    <div class='controls'>
+                        <input  style="margin-top: 7px;" id='emp_birth'  placeholder='YYYY-MM-DD' type='text' />
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' >入职日期</label>
+                    <div class='controls'>
+                        <input  style="margin-top: 7px;" id='emp_in'  placeholder='YYYY-MM-DD' type='text' />
+                    </div>
+                </div>
+              
+                
+                <div class='control-group'>
+                    <label class='control-label' >薪水</label>
+                    <div class='controls' >
+                        <input style="margin-top: 7px;"  id='emp_salary'  placeholder='1000~50000' type='text' />
+                    </div>
+                </div>
+                
+                 <div class='control-group'>
+                    <label class='control-label' >缺勤次数</label>
+                    <div class='controls' >
+                        <input style="margin-top: 7px;"  id='later_time'  type='text' />
+                    </div>
+                </div>
+                
+                <div class='control-group'>
+                    <label class='control-label' for='validation_select'>部门</label>
+                    <div class='controls'>
+                    	 <select data-rule-required='true' id='emp_dept_name'  v-on:click="getJobNamesByDeptName()">		
+                           <option v-for="deptName in deptNames"/>{{deptName}}
+                        </select>
+                    </div>
+                </div>
+                
+                <div class='control-group'>
+                    <label class='control-label' for='validation_select'>职务</label>
+                    <div   class='controls'>
+                        <select data-rule-required='true' id='emp_job_name' >
+                            <option  v-for="jobName in jobNames"/>{{jobName}}
+                        </select>
+                    </div>
+                </div>
+                
+                <div class='control-group' id='state'>
+                    <label class='control-label' for='validation_select'>工作性质</label>
+                    <div class='controls'>
+                        <select data-rule-required='true' id='emp_state' >
+                            <option value="0" />实习
+                            <option value="1" />正式       
+                        </select>
+                    </div>
+                </div>
+                
+               
+                <div class='form-actions' style='margin-bottom:0'>
+                    <button class='btn btn-primary'  v-on:click="postEmp()">
+                        <i class='icon-save'></i>
+                        Test validation
+                    </button>
+                </div>
+            </div>
+        </div>
+       
+	</body>
+	 <script>
+       	var updateEmp = new Vue({
+			el:"#update-emp",
+			data:{
+				deptNames:"",
+				jobNames:"",
+				empName:"",
+				empEmail:"",
+				empGender:"",
+				empBirth:"",
+				empIn:"",
+				empSalary:"",
+				empDeptName:"",
+				empJobName:"",
+				empState:"",
+				laterTime:"",
+				empId:"",
+				pn:""
+				
+			},
+			created:function(){
+				var id = this.getQueryString("id");
+				this.getEmp(id);										
+			},
+			methods:{
+				 getQueryString(name) {
+    				var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+    				var r = window.location.search.substr(1).match(reg);
+    				if (r != null) {
+        				return unescape(r[2]);
+    				}
+    				return null;
+				},
+				getEmp(id) {
+					axios({
+						url: "/spring/emp/"+id,
+						method: 'get',										
+					})
+					.then(function (response) {
+						var emp = response.data.extend.empInfo;
+						//this.empName = emp.empName;
+						//alert(emp.empBirth);
+						alert(emp.empIn);
+						console.log(emp);
+						$('#emp_name').attr("value",emp.empName);
+						$('#emp_email').attr("value",emp.empEmail);	
+						$('#emp_birth').attr("value",emp.empBirth);
+						$('#emp_in').attr("value",emp.empIn);
+						$('#emp_salary').attr("value",emp.empSalary);
+						$('#later_time').attr("value",emp.laterTime);
+						updateEmp.empGender = emp.empGender;
+						updateEmp.empId = emp.empId;
+						this.empDeptName = emp.department.deptName;
+						this.empJobName = emp.job.jobName;
+						if(emp.empState == 1)
+							$('#state').css({ "display": "none" });
+						updateEmp.empState = emp.empState;
+						updateEmp.getJobNamesByDeptName(emp.department.deptName);	
+						updateEmp.getDeptNames(this.empDeptName);	
+						
+										
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
+					
+				},
+
+				getDeptNames(empDeptName){
+					axios({
+						url: "/spring/depts-name",
+						method: 'get',										
+					})
+					.then(function (response) {
+						var deptNames = response.data.extend.deptList;
+						for(var i = 0; i < deptNames.length; i++){
+							if(deptNames[i] == empDeptName){
+								var first = deptNames[0];
+								deptNames[0] = deptNames[i];
+								deptNames[i] = first;
+								
+							}
+						}
+						updateEmp.deptNames = deptNames;
+													
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
+					
+				},
+//				transDate(date){
+//					    var year = date.getFullYear();
+//					    var month = date.getMonth()+1;
+//					    var day = date.getDate();
+//					  	return [year,month,day].join('-');
+//
+//				},
+				
+				getJobNamesByDeptName: function(deptName){
+					if($('#emp_dept_name').val() != null)
+						var deptName = $('#emp_dept_name').val();
+					else
+						var deptName = deptName;
+					axios({
+						url: "/spring/jobs/name/"+deptName,
+						method: 'get',										
+					})
+					.then(function (response) {
+						
+						updateEmp.jobNames = response.data.extend.jobList;	
+						return true;
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
+					
+				},		
+				postEmp(){
+					
+					updateEmp.pn = this.getQueryString("pn");
+					if(this.check()){	
+					
+						axios({	
+							url: '/spring/emp',
+							method: 'put',	
+							data: {
+								empId: this.empId,
+								empGender: this.empGender,
+		   						empJobName: $('#emp_job_name').val(),
+								empName: $('#emp_name').val(),
+								empEmail: $('#emp_email').val(),
+								empBirth: $('#emp_birth').val(),
+								empIn: $('#emp_in').val(),
+								empDeptName: $('#emp_dept_name').val(),
+								empSalary: $('#emp_salary').val(),
+								empState: $('#emp_state').val(),
+								laterTime: $('#later_time').val(),
+		   			 		},
+	
+						}).then(function (response) {				
+							if(response.data.code == 100){
+								self.location="empslist.html?pn="+updateEmp.pn;
+							}
+			    			else{
+			    				if (undefined !== response.data.extend.FieldErrors.empEmail) {
+			    					alert(response.data.extend.FieldErrors.empEmail);
+			    				}
+			    				if (undefined !== response.data.extend.FieldErrors.empIn) {
+			    					alert("员工入职日期不合法！");
+			    				}
+			    				if (undefined !== response.data.extend.FieldErrors.empBirth) {
+			    					alert("员工出生年年月不合法！");
+			    				}
+		    				}
+						})
+						.catch(function (error) {
+			    			console.log(error);
+						});
+					}
+				},
+				check(){
+					if($('#emp_name').val() == ""){
+						alert("员工姓名不能为空");
+						return false;
+					}
+					if($('#emp_email').val() == ""){
+						alert("员工邮箱不能为空");
+						return false;
+					}
+					if($('#emp_birth').val() == ""){
+						alert("员工出生年月不能为空");
+						return false;
+					}
+					if($('#emp_in').val() == ""){
+						alert("员工入职日期不能为空");
+						return false;
+					}
+					if($('#emp_salary').val()== ""){
+						alert("员工薪水不能为空");
+						return false;
+					}
+					else return true;
+														
+				}
+				
+			}
+		});
+						
+			 
+        </script>
+</html>

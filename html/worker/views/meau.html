@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Dashboard Template for Bootstrap</title>
+		  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="../css/meau.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+  </head>
+
+  <body>
+		<div id="vue-meau">
+	    <nav class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#">Project name</a>
+	        </div>
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav navbar-right">
+	            <li><a href="#">Dashboard</a></li>
+	            <li><a href="#">Settings</a></li>
+	            <li><a href="#">Profile</a></li>
+	            <li><a href="#">Help</a></li>
+	          </ul>
+	          <form class="navbar-form navbar-right">
+	            <input type="text" class="form-control" placeholder="Search...">
+	          </form>
+	        </div>
+	      </div>
+	    </nav>
+	    <div class="container-fluid">
+      <div class="row">
+      
+        <div class="col-sm-3 col-md-2 sidebar" >
+				
+          <ul class="nav nav-sidebar">
+          	<!--v-if="setStyle('empslist')"-->
+            <li id="empslist" class="active"><a   href="#" v-on:click="emps()">员工管理 </a></li>
+            <li id="add-emp" ><a href="#" v-on:click="addEmp()">员工入职</a></li>
+            <li id="deptslist"><a href="#" v-on:click="depts()">部门管理</a></li>
+            <li id="jobslist"><a href="#" v-on:click="jobs()">职务管理</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li id="recordslist"><a href="#"  v-on:click="records()">职务变更记录</a></li>
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+            <li><a href="">More navigation</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+          </ul>
+        </div>
+      
+        <div >
+      		<iframe  id="borad" src="empslist.html" width="100%" height="900px" scrolling="no" style="margin-right: 0px;"></iframe>
+      	</div>
+      </div>
+    </div>
+    </div>
+  </body>
+ 
+  <script>
+  var meau = new Vue({
+  		el:"#vue-meau",
+  	
+			data:{
+					
+				
+			},
+			created:function(){
+					this.ifLogin();
+			},
+			methods:{	
+				ifLogin : function(){
+					
+					axios({
+						url: '/spring/test',
+						method: 'get',						
+					}).then(function (response) {
+					
+						if(response.data == "no")
+							window.location.href="signin.html";
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
+				},
+				emps : function(){
+					$("#borad").attr("src","empslist.html");
+					$("#empslist").addClass("active");	
+					$("#add-emp").removeClass('active');
+					$("#deptslist").removeClass('active');	
+					$("#jobslist").removeClass('active');	
+					$("#recordslist").removeClass('active');	
+				},
+				addEmp : function(){
+					$("#borad").attr("src","add_emp.html");
+					$("#empslist").removeClass('active');	
+					$("#add_emp").addClass("active");	
+					$("#deptslist").removeClass('active');	
+					$("#jobslist").removeClass('active');	
+					$("#recordslist").removeClass('active');	
+				},
+				depts : function(){
+					$("#borad").attr("src","deptslist.html");
+					$("#empslist").removeClass('active');	
+					$("#add_emp").removeClass('active');
+					$("#deptslist").addClass("active");		
+					$("#jobslist").removeClass('active');	
+					$("#recordslist").removeClass('active');	
+				},
+				jobs : function(){
+					$("#borad").attr("src","jobslist.html");
+					$("#empslist").removeClass('active');	
+					$("#add_emp").removeClass('active');
+					$("#deptslist").removeClass('active');		
+					$("#jobslist").addClass("active");	
+					$("#recordslist").removeClass('active');	
+				},
+				records : function(){
+					$("#borad").attr("src","recordslist.html");
+					$("#empslist").removeClass('active');	
+					$("#add_emp").removeClass('active');
+					$("#deptslist").removeClass('active');		
+					$("#jobslist").removeClass("active");	
+					$("#recordslist").addClass('active');	
+				},
+				
+//				updateEmp : function(){
+//					$("#borad").attr("src","update_emp.html");
+//					$("#empslist").removeClass('active');	
+//					$("#add_emp").removeClass('active');
+//					$("#update_emp").addClass('active');	
+//				}
+				
+				
+			},
+			computed:{
+				
+			
+					
+			}
+		}
+  		
+  	);
+  		
+  	
+  </script>
+</html>

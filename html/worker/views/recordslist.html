@@ -1,0 +1,136 @@
+<html>
+	<head>
+		<title>部门列表</title> 
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/vue"></script>
+	
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+  
+	<body>
+	<!--职务列表-->	
+	<div id="vue-recordsList" style="margin-left: 300px;">
+		
+		<div class="row">
+			<div class="col-md-12">
+				<div style="float: left;">
+					<h1>职务变更记录</h1>
+				</div>	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-8">
+				<button class="btn btn-primary" id="emp_add_modal_btn" v-on:click="getExcel()">报表</button>
+			</div>
+		</div>
+		
+		
+		
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-hover" id="records_table">
+					<thead>
+						<tr>				
+							<th>No</th>
+							<th>WorkerId</th>
+							<th>OldId</th>
+							<th>NewId</th>
+							<th>TimeId</th>
+							<th>操作</th>
+							
+						</tr>
+					<thead>
+					<tbody >
+						<span  >							
+						   <tr v-for="(record,index) in records " >
+			                  <th>{{ record.jobUpdateId }}</th>
+			                  <th>{{ record.updateWorker }}</th>
+			                  <th>{{ record.beforeId }}</th>
+			                  <th>{{ record.afterId }}</th>
+			                  <th>{{ record.updateTime }}</th>   
+			                  <th>
+			                    
+			                    <button class="btn btn-danger btn-sm"  v-on:click="deleteRecord( record.jobUpdateId)">
+                      				 <span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>
+                                          			 删除
+                    			</button>
+			                   
+			                  </th>
+			                 
+			                </tr>
+						</span>
+						
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	
+</body>
+<script>
+		var record = new Vue(
+			{
+				el:"#vue-recordsList",
+				data:{
+					records:"",	
+				},
+				created:function(){
+					this.getRecords();
+				},
+				methods:{		
+					getRecords(){
+						axios({
+							url: "/spring/records",
+							method: 'get',										
+						}).then(function (response) {
+							var records = response.data.extend.jobUpdateList;
+							record.records = records
+						})
+						.catch(function (error) {
+							console.log(error);
+						});
+						
+					},						
+					deleteRecord(id){
+						var mymessage=confirm("确认删除"+id+"?");	
+						if(mymessage==true)	{		
+							axios({
+								url: '/spring/record/'+id,
+								method: 'delete',			
+							}).then(function (response) {
+								record.getRecords();
+							})
+							.catch(function (error) {
+								console.log(error);
+							});	
+						} else if(mymessage==false) {}		
+					},
+					getExcel(){
+						self.location="/excel/excel";
+						alert("报表已生成");
+//						axios({
+//							url: '/excel/excel',
+//							method: 'get',			
+//						}).then(function (response) {
+//							alert('提交成功');
+//						})
+//						.catch(function (error) {
+//							console.log(error);
+//						});				
+					},
+				
+				},
+				computed:{
+					
+				}
+			}
+		);
+		
+	</script>
+</html>
