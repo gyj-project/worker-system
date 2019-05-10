@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bzu.employeeprovider.dao.JobMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.bzu.employeeprovider.pojo.Job">
+        <id column="job_id" property="jobId" />
+        <result column="job_name" property="jobName" />
+        <result column="dept_id" property="deptId" />
+    </resultMap>
+
+    <!-- WithDept映射结果 -->
+    <resultMap id="WithDeptResultMap" type="cn.bzu.employeeprovider.pojo.Job">
+        <id column="job_id" property="jobId" />
+        <result column="job_name" property="jobName" />
+        <result column="dept_id" property="deptId" />
+        <association javaType="cn.bzu.employeeprovider.pojo.Department" property="department">
+            <id column="dept_id" property="deptId" />
+            <result column="dept_name" property="deptName" />
+            <result column="dept_manager" property="deptManager" />
+        </association>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        job_id AS jobId, job_name AS jobName, dept_id AS deptId
+    </sql>
+
+    <select id="selectJobWithDept" parameterType="cn.bzu.employeeprovider.pojo.Job" resultMap="WithDeptResultMap">
+        select * from department,job
+        where job.dept_id = department.dept_id
+        order by job.job_id
+    </select>
+
+    <select id="selectJobWithDeptById" parameterType="Integer" resultMap="WithDeptResultMap">
+        select * from department,job
+        where job.dept_id = department.dept_id and job.job_id = #{jobId}
+        order by job.job_id
+    </select>
+
+    <select id="selectJobWithDeptByDeptId" parameterType="Integer" resultMap="WithDeptResultMap">
+        select * from department,job
+        where job.dept_id = department.dept_id and job.dept_id = #{deptId}
+        order by job.job_id
+    </select>
+
+</mapper>

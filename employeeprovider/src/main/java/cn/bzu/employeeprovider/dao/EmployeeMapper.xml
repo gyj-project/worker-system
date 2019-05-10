@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bzu.employeeprovider.dao.EmployeeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.bzu.employeeprovider.pojo.Employee">
+        <id column="emp_id" property="empId" />
+        <result column="emp_name" property="empName" />
+        <result column="emp_email" property="empEmail" />
+        <result column="emp_gender" property="empGender" />
+        <result column="emp_in" property="empIn" />
+        <result column="emp_birth" property="empBirth" />
+        <result column="dept_id" property="deptId" />
+        <result column="job_id" property="jobId" />
+        <result column="emp_salary" property="empSalary" />
+        <result column="later_time" property="laterTime" />
+        <result column="emp_state" property="empState" />
+    </resultMap>
+    <resultMap id="WithDeptAndJobResultMap" type="cn.bzu.employeeprovider.pojo.Employee">
+        <id column="emp_id" property="empId" />
+        <result column="emp_name" property="empName" />
+        <result column="emp_email" property="empEmail" />
+        <result column="emp_gender" property="empGender" />
+        <result column="emp_in" property="empIn" />
+        <result column="emp_birth" property="empBirth" />
+        <result column="dept_id" property="deptId" />
+        <result column="job_id" property="jobId" />
+        <result column="emp_salary" property="empSalary" />
+        <result column="later_time" property="laterTime" />
+        <result column="emp_state" property="empState" />
+        <association javaType="cn.bzu.employeeprovider.pojo.Department" property="department">
+            <id column="dept_id" property="deptId" />
+            <result column="dept_name" property="deptName" />
+            <result column="dept_manager" property="deptManager" />
+        </association>
+        <association javaType="cn.bzu.employeeprovider.pojo.Job" property="job">
+        <id column="job_id" property="jobId" />
+        <result column="job_name" property="jobName" />
+    </association>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        emp_id AS empId, emp_name AS empName, emp_email AS empEmail, emp_gender AS empGender, emp_in AS empIn, emp_birth AS empBirth, dept_id AS deptId, job_id AS jobId, emp_salary AS empSalary, later_time AS laterTime, emp_state AS empState
+    </sql>
+    <sql id="WithDeptAndJob_Column_List">
+         emp_id AS empId, emp_name AS empName, emp_email AS empEmail, emp_gender AS empGender, emp_in AS empIn, emp_birth AS empBirth, dept_id AS deptId, job_id AS jobId, emp_salary AS empSalary, later_time AS laterTime, emp_state AS empState,
+         dept_id AS deptId, dept_name AS deptName, dept_manager AS deptManager,
+         job_id AS jobId, job_name AS jobName
+    </sql>
+    <select id="selectEmpsWithDeptAndJob" parameterType="cn.bzu.employeeprovider.pojo.Employee" resultMap="WithDeptAndJobResultMap">
+        select * from employee,department,job
+        where employee.dept_id = department.dept_id and employee.job_id = job.job_id
+        order by employee.emp_id desc
+    </select>
+
+    <select id="selectEmpsWithDeptAndJobByState" parameterType="Integer" resultMap="WithDeptAndJobResultMap">
+        select * from employee,department,job
+        where employee.dept_id = department.dept_id and employee.job_id = job.job_id and employee.emp_state = #{empState}
+        order by employee.emp_id desc
+    </select>
+
+    <select id="selectEmpsWithDeptAndJobByName" parameterType="String" resultMap="WithDeptAndJobResultMap">
+        select * from employee,department,job
+        where employee.dept_id = department.dept_id and employee.job_id = job.job_id and employee.emp_name = #{empName}
+        order by employee.emp_id desc
+    </select>
+
+    <select id="selectEmpWithDeptAndJobById" parameterType="Integer" resultMap="WithDeptAndJobResultMap">
+        select * from employee,department,job
+        where employee.dept_id = department.dept_id and employee.job_id = job.job_id and employee.emp_id = #{empId}
+        order by employee.emp_id desc
+    </select>
+
+    <select id="selectEmpsWithDeptAndJobByDeptName" parameterType="String" resultMap="WithDeptAndJobResultMap">
+        select * from employee,department,job
+        where employee.dept_id = department.dept_id and employee.job_id = job.job_id and department.dept_name = #{deptName}
+        order by employee.emp_id desc
+    </select>
+
+    <select id="selectEmpsWithDeptAndJobByJobName" parameterType="String" resultMap="WithDeptAndJobResultMap">
+        select * from employee,department,job
+        where employee.dept_id = department.dept_id and employee.job_id = job.job_id and job.job_name = #{jobName}
+        order by employee.emp_id desc
+    </select>
+
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/adminprovider/adminprovider.iml" filepath="$PROJECT_DIR$/adminprovider/adminprovider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/employeeprovider/employeeprovider.iml" filepath="$PROJECT_DIR$/employeeprovider/employeeprovider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jobprovider/jobprovider.iml" filepath="$PROJECT_DIR$/jobprovider/jobprovider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/workermanage/workermanage.iml" filepath="$PROJECT_DIR$/workermanage/workermanage.iml" />
+    </modules>
+  </component>
+</project>

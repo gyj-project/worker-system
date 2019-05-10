@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bzu.jobprovider.dao.JobUpdateMapper">
+
+
+    <resultMap id="WithJobNameResultMap" type="cn.bzu.jobprovider.pojo.JobUpdate">
+        <id column="job_update_id" property="jobUpdateId" />
+        <result column="before_id" property="beforeId" />
+        <result column="after_id" property="afterId" />
+        <result column="update_worker" property="updateWorker" />
+        <result column="update_time" property="updateTime" />
+       
+    </resultMap>
+
+
+    <sql id="WithJobName_Column_List">
+        job_update.job_update_id , job_update.before_id, job_update.after_id, job_update.update_worker, job_update.update_time,
+          a.job_name as oldJob,  b.job_name as newJob
+    </sql>
+
+    <select id="selectJobUpdate"  resultMap="WithJobNameResultMap">
+        select
+         *
+         from job_update, job a, job b
+         where job_update.before_id = a.job_id and job_update.after_id = b.job_id
+          order by job_update_id desc
+
+
+    </select>
+
+</mapper>
