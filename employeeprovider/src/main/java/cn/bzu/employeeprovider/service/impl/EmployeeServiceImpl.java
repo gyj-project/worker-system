@@ -60,17 +60,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         return employeeMapper.selectEmpWithDeptAndJobById(empId);
     }
 
-//    @Override
-//    @Cacheable(cacheNames = {"emp"},keyGenerator = "myKeyGenerator")
-//    public List<Employee> getEmpsByDeptName(String deptName) {
-//        return employeeMapper.selectEmpsWithDeptAndJobByDeptName(deptName);
-//    }
-//
-//    @Override
-//    @Cacheable(cacheNames = {"emp"},keyGenerator = "myKeyGenerator")
-//    public List<Employee> getEmpsByJobName(String jobName) {
-//        return employeeMapper.selectEmpsWithDeptAndJobByJobName(jobName);
-//    }
+
     @CacheEvict(value = "emp",allEntries = true)
     public void updateEmp(EmpInput empInput) throws ParseException {
         Employee employee = new Employee();
