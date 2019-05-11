@@ -27,6 +27,9 @@ import java.util.UUID;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class EmployeeproviderApplicationTests {
+    @Test
+    public void contextLoads() {
+    }
 //
 //    @Autowired
 //    private EmployeeMapper employeeMapper;
@@ -49,9 +52,7 @@ public class EmployeeproviderApplicationTests {
 //
 //
 //
-//    @Test
-//    public void contextLoads() {
-//    }
+//
 //    @Test
 //    public void insertData() throws ParseException {
 //        for(int i = 0; i < 1000; i++) {

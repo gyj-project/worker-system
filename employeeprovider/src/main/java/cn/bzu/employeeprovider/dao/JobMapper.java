@@ -33,13 +33,13 @@ public interface JobMapper extends BaseMapper<Job> {
     @Select("select   IFNULL(t1.num, 0) from" +
             "  job   LEFT JOIN  " +
             " (SELECT  employee.job_id,  COUNT(*) AS num   FROM   employee  GROUP BY employee.job_id) t1 " +
-            "on job.`job_id` = t1.job_id ")
+            "on job.`job_id` = t1.job_id  order by job.job_id")
     public List<Integer> selectJobPeople();
     //查询某部门下职务人数
     @Select("select   IFNULL(t1.num, 0) from (SELECT * FROM job where dept_id = #{deptId}) as job " +
             "  LEFT JOIN  " +
             "             (SELECT  employee.job_id,  COUNT(*) AS num   FROM   employee  GROUP BY employee.job_id) t1 " +
-            "            on job.`job_id` = t1.job_id ")
+            "            on job.`job_id` = t1.job_id  order by job.job_id")
     public List<Integer> selectJobPeopleByDeptId(Integer deptId);
 
 

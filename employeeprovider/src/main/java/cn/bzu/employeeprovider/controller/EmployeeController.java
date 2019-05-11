@@ -45,6 +45,7 @@ public class EmployeeController {
 		return Msg.success().add("pageInfo", pageInfo);
 
 	}
+
 	/*
 	 * 根据id查询员工的详细信息并计算本月工资*/
 	@GetMapping("/emp/{id}")
@@ -59,6 +60,32 @@ public class EmployeeController {
 		return Msg.success().add("empInfo", employee).add("money",money);
 
 	}
+
+	/*
+	 * 添加员工*/
+	@PostMapping("/emp")
+	public Msg addEmp(@RequestBody EmpInput empInput) throws ParseException {
+		System.out.println(empInput.toString());
+		employeeService.addEmp(empInput);
+    	return Msg.success();
+	}
+
+	/*
+	 * 修改员工*/
+	@PutMapping("/emp")
+	public void updateEmp(@RequestBody EmpInput empInput) throws ParseException {
+		System.out.println( "得到id"+empInput.getEmpId());
+		employeeService.updateEmp(empInput);
+	}
+
+	/*
+	 * 删除员工*/
+	@DeleteMapping("/emp/{id}")
+	public Msg deleteEmp(@PathVariable("id") Integer empId){
+		employeeService.deleteEmpById(empId);
+		return Msg.success();
+	}
+
 	/*
 	 * 根据条件分页搜索员工信息*/
 	@RequestMapping("/semps")
@@ -69,35 +96,6 @@ public class EmployeeController {
 		return Msg.success().add("pageInfo", pageInfo);
 
 	}
-	/*
-	 * 添加员工*/
-	@PostMapping("/emp")
-	public Msg addEmp(@RequestBody EmpInput empInput) throws ParseException {
-		System.out.println(empInput.toString());
-		employeeService.addEmp(empInput);
-    	return Msg.success();
-	}
-	/*
-	 * 修改员工*/
-	@PutMapping("/emp")
-	public void updateEmp(@RequestBody EmpInput empInput) throws ParseException {
-		System.out.println( "得到id"+empInput.getEmpId());
-		employeeService.updateEmp(empInput);
-	}
-	/*
-	 * 删除员工*/
-	@DeleteMapping("/emp/{id}")
-	public Msg deleteEmp(@PathVariable("id") Integer empId){
-		employeeService.deleteEmpById(empId);
-		return Msg.success();
-	}
-//	@RequestMapping("/emp")
-//	public Employee getEmpByName(@RequestParam(value = "name")String name) {
-//    	Employee employee = new Employee();
-//    	employee.setEmpName("津少");
-//
-//    	return employeeMapper.selectOne(employee);
-//	}
 
 
 }

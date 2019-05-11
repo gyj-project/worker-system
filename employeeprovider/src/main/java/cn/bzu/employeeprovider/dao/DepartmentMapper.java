@@ -28,10 +28,10 @@ public interface DepartmentMapper extends BaseMapper<Department> {
     //根据部门id查询某部门包含其下的职务的信息 ~没用到
     public Department selectDeptWithJobById(Integer deptId);
     //查询各部门的人数
-    @Select("select   IFNULL(t1.num, 0) from" +
+    @Select("select  IFNULL(t1.num, 0) from" +
             "  department   LEFT JOIN  " +
             " (SELECT  employee.dept_id,  COUNT(*) AS num   FROM   employee  GROUP BY employee.dept_id) t1 " +
-            "on department.`dept_id` = t1.dept_id ")
+            "on department.`dept_id` = t1.dept_id order by department.dept_id")
     public List<Integer> selectDeptPeople();
 
 

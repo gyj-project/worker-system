@@ -9,14 +9,11 @@
         <result column="after_id" property="afterId" />
         <result column="update_worker" property="updateWorker" />
         <result column="update_time" property="updateTime" />
-       
+
     </resultMap>
 
 
-    <sql id="WithJobName_Column_List">
-        job_update.job_update_id , job_update.before_id, job_update.after_id, job_update.update_worker, job_update.update_time,
-          a.job_name as oldJob,  b.job_name as newJob
-    </sql>
+
 
     <select id="selectJobUpdate"  resultMap="WithJobNameResultMap">
         select
