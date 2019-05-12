@@ -80,21 +80,17 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         employee.setEmpSalary(empInput.getEmpSalary());
         employee.setEmpState(empInput.getEmpState());
         employee.setLaterTime(empInput.getLaterTime());
-
-
+        //旧信息
         Employee oldEmployee = employeeMapper.selectEmpWithDeptAndJobById(empInput.getEmpId());
-        Integer oldJobId = oldEmployee.getJob().getJobId();
 
+        Integer oldJobId = oldEmployee.getJob().getJobId();
         Integer newJobId = employee.getJobId();
         Integer workerId = employee.getEmpId();
-
+        //新旧工作对比
         if (oldJobId != newJobId){
-
             String nowDay = sdf.format(new Date());
             JobUpdate jobUpdate = new JobUpdate(null,oldJobId,newJobId,workerId,nowDay);
             restTemplate.postForObject("http://JOB-PROVIDER/jobUpdate",jobUpdate, Msg.class);
-
-
         }
         employeeMapper.updateById(employee);
     }

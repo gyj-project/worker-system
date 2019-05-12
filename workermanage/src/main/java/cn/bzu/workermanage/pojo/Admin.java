@@ -53,10 +53,6 @@ public class Admin implements Serializable {
     }
 
 
-//    protected Serializable pkVal() {
-//        return this.adminId;
-//    }
-
 
     public Admin() {
     }

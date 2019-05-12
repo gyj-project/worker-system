@@ -35,8 +35,4 @@ public interface DepartmentMapper extends BaseMapper<Department> {
     public List<Integer> selectDeptPeople();
 
 
-
-//
-//    public List
-  //  public Admin getAdminByEmail(@Param("adminName") String name, @Param("adminEmail") String email);
 }

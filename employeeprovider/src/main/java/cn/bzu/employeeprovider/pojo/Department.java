@@ -28,17 +28,6 @@ public class Department implements Serializable {
     @TableField(exist = false)
     private List<Job> jobList;
 
-//    @TableField(exist = false)
-//    private Job job;
-//
-//    public Job getJob() {
-//        return job;
-//    }
-//
-//    public void setJob(Job job) {
-//        this.job = job;
-//    }
-
     public List<Job> getJobList() {
         return jobList;
     }

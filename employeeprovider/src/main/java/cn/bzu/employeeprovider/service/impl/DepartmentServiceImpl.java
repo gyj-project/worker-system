@@ -32,16 +32,13 @@ import java.util.List;
 public class DepartmentServiceImpl extends ServiceImpl<DepartmentMapper, Department> implements DepartmentService {
 
     @Autowired
-    RedisTemplate redisTemplate;
+    private RedisTemplate redisTemplate;
 
     @Autowired
-    StringRedisTemplate StringRedisTemplate;
+    private StringRedisTemplate StringRedisTemplate;
 
     @Autowired
     private DepartmentMapper departmentMapper;
-
-
-
 
 
     @Override

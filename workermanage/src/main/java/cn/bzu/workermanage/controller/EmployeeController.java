@@ -25,7 +25,7 @@ public class EmployeeController {
     @Autowired
     private RabbitTemplate rabbitTemplate;
     @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     @GetMapping("/emps")
     public Msg getEmps(@RequestParam(value="pn",defaultValue="1") Integer pn) {
@@ -40,13 +40,11 @@ public class EmployeeController {
     @GetMapping("/semps")
     public Msg searchEmps(@RequestParam(value="pn",defaultValue="1") Integer pn, @RequestParam(value="type") String type) {
         if (type == "") {
-            System.out.println(type+"type为空");
             return getEmps(pn);
         }
         Msg msg = restTemplate.getForObject("http://EMPLOYEE-PROVIDER/semps?pn="+pn+"&type="+type, Msg.class);
         return msg;
     }
-    //HttpServletRequest request
     @PostMapping("/emp")
     public Msg addEmp(@Valid EmpInput empInput, BindingResult result){
         if(result.hasErrors()){

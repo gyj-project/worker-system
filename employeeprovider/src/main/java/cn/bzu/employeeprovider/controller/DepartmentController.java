@@ -25,7 +25,6 @@ import java.util.List;
 public class DepartmentController {
     @Autowired
      DepartmentServiceImpl departmentService;
-
     /*
     * 通过部门名称查找部门*/
     @GetMapping("/dept")

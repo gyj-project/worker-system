@@ -21,8 +21,6 @@ public class AdminController {
     public String testLink(HttpServletRequest request) {
         HttpSession session = request.getSession();
         Admin admin = (Admin)session.getAttribute("Admin");
-        if(admin != null)
-            System.out.println(admin.toString()+"sssssssssssssssssssssss");
         return admin != null ? "ok" : "no";
     }
 

@@ -15,7 +15,6 @@ public class EmployeeService {
 
     @RabbitListener(queues = {"qst.news"})
     public void receive(EmpInput empInput){
-        System.out.println("收到消息"+empInput.toString());
         Msg msg = restTemplate.postForObject("http://EMPLOYEE-PROVIDER/emp",empInput, Msg.class);
     }
 }

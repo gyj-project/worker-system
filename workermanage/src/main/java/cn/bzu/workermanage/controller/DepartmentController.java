@@ -40,7 +40,6 @@ public class DepartmentController {
 
     @PostMapping("/dept")
     public Msg addDept(@RequestBody Department department){
-        System.out.println(department.toString());
         Msg msg = restTemplate.postForObject("http://EMPLOYEE-PROVIDER/dept", department, Msg.class);
         return msg;
     }

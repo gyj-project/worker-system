@@ -21,15 +21,11 @@ public interface EmployeeService extends IService<Employee> {
 
     public List<Employee> getEmps();
 
-
     public Employee getEmpById(Integer empId);
-//    public List<Employee> getEmpsByDeptName(String deptName);
-//    public List<Employee> getEmpsByJobName(String jobName);
     public List<Employee> searchEmps(Integer pn,String type);
     public void updateEmp(EmpInput empInput) throws ParseException;
     public void addEmp(EmpInput empInput) throws ParseException;
     public void deleteEmpById(Integer id);
-
 
     public void updateLaterTime();
 
