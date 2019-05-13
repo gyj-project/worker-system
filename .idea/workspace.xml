@@ -90,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workermanage/src/main/java/cn/bzu/workermanage/pojo/Job.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="1056">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
             </state>
           </provider>
         </entry>
@@ -99,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/workermanage/src/main/java/cn/bzu/workermanage/config/MvcConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            <state relative-caret-position="125">
+              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/workermanage/src/main/java/cn/bzu/workermanage/component/LoginInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="16" column="60" lean-forward="true" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
+              <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -270,9 +270,9 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="210" />
-    <option name="y" value="36" />
-    <option name="width" value="898" />
-    <option name="height" value="504" />
+    <option name="y" value="35" />
+    <option name="width" value="899" />
+    <option name="height" value="505" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -301,39 +301,6 @@
             <path>
               <item name="worker" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="employeeprovider" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="worker" type="58d84e3e:PackageViewProjectNode" />
-              <item name="adminprovider" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="worker" type="58d84e3e:PackageViewProjectNode" />
-              <item name="adminprovider" type="616d4139:PackageViewModuleNode" />
-              <item name="cn" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="worker" type="58d84e3e:PackageViewProjectNode" />
-              <item name="adminprovider" type="616d4139:PackageViewModuleNode" />
-              <item name="cn" type="1f31426a:PackageElementNode" />
-              <item name="bzu" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="worker" type="58d84e3e:PackageViewProjectNode" />
-              <item name="adminprovider" type="616d4139:PackageViewModuleNode" />
-              <item name="cn" type="1f31426a:PackageElementNode" />
-              <item name="bzu" type="1f31426a:PackageElementNode" />
-              <item name="adminprovider" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="worker" type="58d84e3e:PackageViewProjectNode" />
-              <item name="employeeprovider" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
@@ -440,6 +407,39 @@
               <item name="workermanage" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
               <item name="MvcConfig" type="1a9f42e2:ClassTreeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="worker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="adminprovider" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="worker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="adminprovider" type="616d4139:PackageViewModuleNode" />
+              <item name="cn" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="worker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="adminprovider" type="616d4139:PackageViewModuleNode" />
+              <item name="cn" type="1f31426a:PackageElementNode" />
+              <item name="bzu" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="worker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="adminprovider" type="616d4139:PackageViewModuleNode" />
+              <item name="cn" type="1f31426a:PackageElementNode" />
+              <item name="bzu" type="1f31426a:PackageElementNode" />
+              <item name="adminprovider" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="worker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="employeeprovider" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
@@ -662,6 +662,7 @@
       <workItem from="1557619749208" duration="5598000" />
       <workItem from="1557644835627" duration="5228000" />
       <workItem from="1557714952873" duration="2218000" />
+      <workItem from="1557730963339" duration="1598000" />
     </task>
     <task id="LOCAL-00001" summary="version3">
       <created>1557591652645</created>
@@ -734,7 +735,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293572000" />
+    <option name="totallyTimeSpent" value="295170000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -746,9 +747,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4957806" visible="true" weight="0.23726542" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4957806" visible="true" weight="0.107908845" />
       <window_info id="Structure" order="1" sideWeight="0.5042194" side_tool="true" weight="0.24731903" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -764,7 +765,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Spring" order="6" weight="0.32956153" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32956153" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49798927" visible="true" weight="0.9560906" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49798927" weight="0.80594903" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5020107" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3286119" />
@@ -1283,22 +1284,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workermanage/src/main/java/cn/bzu/workermanage/pojo/Job.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="1056">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/workermanage/src/main/java/cn/bzu/workermanage/component/LoginInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
-          <caret line="16" column="60" lean-forward="true" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
+          <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/workermanage/src/main/java/cn/bzu/workermanage/config/MvcConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        <state relative-caret-position="125">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
