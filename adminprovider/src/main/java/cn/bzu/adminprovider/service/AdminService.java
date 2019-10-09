@@ -19,10 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 public interface AdminService {
 
     public String testLink();
+    public String testUser(User user);
 
     public boolean adminLogin(String name, String pass);
-
-    public String testUser(User user);
 
     public boolean getPass(String name, String email);
 

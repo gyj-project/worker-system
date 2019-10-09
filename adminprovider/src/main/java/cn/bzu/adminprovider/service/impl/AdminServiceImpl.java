@@ -41,7 +41,6 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public boolean getPass(String name, String email) {
 
-
         Admin admin = adminDao.getAdminByEmail(name, email);
         if (admin != null) {
             new Thread(new Runnable() {
@@ -72,14 +71,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public boolean adminLogin( String name, String pass) {
-        // EntityWrapper<Admin> wrapper = new EntityWrapper<>();
-        System.out.println(name + "saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
         Admin admin = adminDao.getAdmin(name, pass);
-//        if (admin != null) {
-//            HttpSession session = request.getSession();
-//            session.setAttribute("");
-//        }
+
         return admin != null;
     }
 

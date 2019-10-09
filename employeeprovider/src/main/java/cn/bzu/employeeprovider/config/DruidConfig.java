@@ -30,8 +30,6 @@ public class DruidConfig {
         //StatViewServlet作用：
         //提供监控信息展示的html页面
         //提供监控信息的JSON API
-
-
         //spring boot 默认不支持外部servlet
         //Spring boot 默认为我们提供了注册 Servlet 三大组件 Servlet、Filter、Listener 的接口。我们只需按需配置和添加少量的代码即可实现添加 Servlet 的功能
 

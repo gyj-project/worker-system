@@ -19,7 +19,7 @@ public class RestTemplateConfig extends WebMvcConfigurationSupport {
         RestTemplate restTemplate = new RestTemplate();
         List<HttpMessageConverter<?>> messageConverters = restTemplate.getMessageConverters();
         //默认的MappingJackson2HttpMessageConverter在第7个 先把它移除掉
-       // messageConverters.remove(6);
+        // messageConverters.remove(6);
         //添加上GSON的转换器
         //messageConverters.add(7, new GsonHttpMessageConverter());
         return restTemplate;

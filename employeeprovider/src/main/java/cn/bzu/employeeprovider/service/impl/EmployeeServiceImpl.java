@@ -65,7 +65,6 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     public void updateEmp(EmpInput empInput) throws ParseException {
         Employee employee = new Employee();
 
-
         Integer deptId = departmentService.getDeptByName(empInput.getEmpDeptName()).getDeptId();
         Integer jobId =  jobService.getJobByJobNameAndDeptId(empInput.getEmpJobName(),deptId).getJobId();
         employee.setEmpId(empInput.getEmpId());
